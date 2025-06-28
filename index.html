@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <title>পেমেন্ট করুন | শিবপ্রসাদ মুখার্জী</title>
+  <link rel="icon" type="image/x-icon" href="spm.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #fff8e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+    }
+
+    button {
+      padding: 14px 28px;
+      background-color: #ffdd00;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #ffe74c;
+    }
+
+    #qr-container,
+    #upi-link-container,
+    #instruction {
+      margin-top: 25px;
+      display: none;
+    }
+
+    #qr-container img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      border: 2px solid #ccc;
+    }
+
+    #upi-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00c853;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+
+    #upi-link:hover {
+      background-color: #00e676;
+    }
+
+    #instruction {
+      font-size: 1em;
+      background-color: #fff3cd;
+      color: #7b5e00;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 420px;
+      border: 1px solid #ffeeba;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #25d366;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebc5c;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+  <h1>📚 সাবস্ক্রিপশন পেমেন্ট</h1>
+<p>👉 আমার সব কনটেন্ট সবার জন্য না। কিছু এক্সক্লুসিভ কনটেন্ট আছে যা শুধুমাত্র সাবস্ক্রাইবারদের জন্য।<br>
+যদি তোমার পড়াশোনায় এগুলো সাহায্য করে — তাহলে নিচের বাটনে ক্লিক করে সাবস্ক্রাইব করো। 😊</p>
+
+
+  <button onclick="handleDonate()">পেমেন্ট করো</button>
+
+  <div id="upi-link-container">
+    <p>মোবাইল ব্যবহারকারীদের জন্য:</p>
+    <a href="upi://pay?pa=spmohq@oksbi&cu=INR" id="upi-link">📲 UPI অ্যাপে পেমেন্ট করো।</a>
+  </div>
+
+  <div id="qr-container">
+    <p>কম্পিউটার ব্যবহারকারীরা নিচের QR কোড স্ক্যান করে পেমেন্ট করো।:</p>
+    <img src="spm-gpay.jpeg" alt="UPI QR Code" />
+  </div>
+
+  <div id="instruction">
+    ✅ পেমেন্ট করার পর, নিচের WhatsApp বাটনে ক্লিক করে<br>
+    তোমার নাম পাঠাও – আমরা তোমার  অ্যাক্সেস অ্যাকটিভ করে দেব।
+    <br>
+    <a href="https://wa.me/919883787947?text=আমি%20পেমেন্ট%20করেছি।%20আমার%20নাম%20..." class="whatsapp-btn">📱 WhatsApp করুন</a>
+  </div>
+
+  <script>
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    function handleDonate() {
+      const upiLinkSection = document.getElementById("upi-link-container");
+      const qrSection = document.getElementById("qr-container");
+      const instruction = document.getElementById("instruction");
+
+      if (isMobileDevice()) {
+        upiLinkSection.style.display = "block";
+        upiLinkSection.scrollIntoView({ behavior: "smooth" });
+      } else {
+        qrSection.style.display = "block";
+        qrSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      setTimeout(() => {
+        instruction.style.display = "block";
+        instruction.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
