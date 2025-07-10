@@ -11,6 +11,7 @@
       max-width: 800px;
       margin: auto;
     }
+
     #copyBtn, #translateBtn {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
@@ -21,19 +22,23 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     #copyBtn:hover, #translateBtn:hover {
       background: #0056b3;
     }
+
     #google_translate_element {
       margin-top: 1rem;
     }
-    pre {
+
+    .pre-like {
       background: #f5f5f5;
       padding: 1rem;
       border: 1px solid #ddd;
       border-radius: 4px;
       white-space: pre-wrap;
       word-wrap: break-word;
+      font-family: monospace;
     }
   </style>
 </head>
@@ -41,10 +46,11 @@
 
   <h2>Text Content</h2>
 
-  <pre id="textContent">
+  <!-- Preformatted-style div (Google Translate works here) -->
+  <div id="textContent" class="pre-like">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Pellentesque ultricies mauris a velit sollicitudin, nec fermentum elit eleifend.
-  </pre>
+  </div>
 
   <!-- Copy Button -->
   <button id="copyBtn">📋 Copy Text</button>
